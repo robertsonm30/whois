@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GrabReddit</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="form-group">
+        <label for="tweet">GrabReddit</label>
+        <input type="html" class="form" id="html">
+    </div>
+
+    <button type="go" class="btn btn-default">grab it</button>
+
+    <div class="container">
+    </div>
+
+    <script>
+        var inputURL;
+        var commentArray = [];
+
+        $(".btn").click(function() {
+
+            inputURL = $("#html").val();
+            $.getJSON(inputURL + ".json", function(response) {
+                console.log(response);
+
+                console.log(response.data.children[0]);
+
+                for (i = 0; i < 25; i++) {
+                    commentArray[i] = response.data.children[i].data.body;
+                }
+
+                for (i = 0; i < 25; i++) {
+                    console.log("commentArray[" + i + "] : " + commentArray[i]);
+                }
+
+                var commentString = commentArray.toString()
+                console.log("commentString" + commentString);
+
+            });
+        });
+    </script>
+</body>
+
+</html>
