@@ -45,6 +45,7 @@ $(document).ready(function() {
         var duplicateName = 0;
         var nameArray = [];
         var commentArray = [];
+        var accuracy = 0;
 
         //these items will come from Watson, but for now, they are grabed from the input page    
         var inputOpen = $("#openness").val();
@@ -89,7 +90,7 @@ $(document).ready(function() {
 
             console.log ("computedStringLength: " + computedStringLength);
 
-            watson(cleanString, inputName);
+            watson(cleanString, inputName, accuracy);
 
             });
 
@@ -214,7 +215,7 @@ function renderChart(chartData) {
 };
 
 
-  function watson(arg1, arg2) {
+  function watson(arg1, arg2, arg3) {
     $.ajax({
         beforeSend: function (xhr) {
           xhr.setRequestHeader("Authorization", "Basic " + btoa('b70d03c0-98b6-4779-a114-492044d84740' + ":" + 'kxEYfXWtvODD')); },
@@ -225,6 +226,7 @@ function renderChart(chartData) {
     }).then(function(response) {
         firebase.database().ref().push ({
             Name: arg2,
+            Accuracy: arg3,
             Openness: response.personality[0].percentile,
             Conscientiousness: response.personality[1].percentile,
             Extraversion: response.personality[2].percentile, 
