@@ -17,10 +17,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <!-- including Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
@@ -48,7 +48,7 @@
                 <form id="form" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <label for="user_name">User Name:</label>
+                            <label id="userText" for="user_name">User Name:</label>
                             <input id="user_name" type="text" class="validate">
                         </div>
                     </div>
@@ -83,9 +83,10 @@
                         </div>
                     </div> -->
                     <a class="waves-effect waves-light btn" id="submit">Submit</a>
-
                 </form>
-                <a id="tableD" href="table_proto.html">🚹</a>
+                <br>
+
+                <a id="tableD" href="table_proto.html" style="text-decoration:none">🚹</a>
             </div>
 
             <img id="logo" width="250" height="250" src="assets/images/giphy.gif">
