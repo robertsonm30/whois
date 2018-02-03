@@ -139,10 +139,10 @@ body {
 #main {
     background-color: black;
     border-radius: 50px;
-    margin-top: 40px;
-    margin-bottom: 50px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-top: 20px;
+    margin-bottom: 400px;
+    margin-left: 80px;
+    margin-right: 80px;
     height: 600px;
 }
 
@@ -152,11 +152,11 @@ body {
 }
 
 #name {
-    margin-top: 50px;
     color: coral;
     font-size: 30px;
     font-family: fantasy;
     margin-left: 50px;
+    padding-top: 30px;
 }
 
 #submit {
@@ -166,9 +166,14 @@ body {
     margin-left: 50px;
     width: 150px;
     height: 50px;
-    margin-top: 20px;
+    margin-top: 40px;
     font-family: fantasy;
     font-size: 25px;
+    border: hidden
+}
+
+#submit:hover {
+    background-color: teal;
 }
 
 #search {
@@ -176,6 +181,7 @@ body {
     height: 200px;
     margin-left: 50px;
     margin-top: 30px;
+    font-size: 30px;
 }
 
 form {
@@ -184,9 +190,21 @@ form {
 }
 
 #logo {
-    margin-top: 150px;
+    margin-top: 80px;
     margin-right: 200px;
     float: right;
+    display: inline;
+}
+
+#input {
+    border: hidden;
+    width: 500px;
+    height: 400px;
+    display: inline;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-top: 40px;
 }
 
 .navbar-header {
@@ -203,4 +221,126 @@ form {
 
 #favicon {
     border-radius: 80px;
+}
+
+.secondPage {
+    width: 800px;
+    height: 900px;
+}
+
+.parallax-container {
+    height: 2000px;
+}
+
+#pageOne {
+    margin-top: 250px;
+    margin-left: 100px;
+    color: gray;
+}
+
+.container-fluid {
+    display: inline;
+    float: left;
+}
+
+#pageTwo {
+    display: inline;
+    float: right;
+    margin-bottom: 700px;
+}
+
+.w3-jumbo {
+    float: right;
+    margin-right: 60px;
+    cursor: pointer;
+}
+
+#bar-chart {
+    margin-top: 500px;
+}
+
+#analyze {
+    margin-top: 500px;
+}
+
+label {
+    color: gold;
+    font-size: 25px;
+    font-family: fantasy;
+}
+
+#tableDisplay {
+    background-color: coral;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 50px;
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+    font-family: fantasy;
+    font-size: 25px;
+    border: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#tableHeader {
+    background-color: coral;
+    height: 100px;
+    text-align: center;
+    color: black;
+    font-family: fantasy;
+    font-size: 30px;
+    padding-top: 30px;
+}
+
+#header {
+    background: black;
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+}
+
+th {
+    color: gold;
+    font-family: fantasy;
+    font-size: 25px;
+}
+
+#tableD {
+    font-size: 50px;
+    margin-left: 110px;
+}
+
+.highlight {
+    background-color: Yellow;
+    color: Green;
+}
+
+#tablePage {
+    overflow: scroll;
+}
+
+.form {
+    height: 300px;
+}
+
+#user_name {
+    margin-left: 90px;
+}
+
+#openness {
+    margin-left: 95px;
+}
+
+#extraversion {
+    margin-left: 70px;
+}
+
+#agreeableness {
+    margin-left: 45px;
+}
+
+#emotional_range {
+    margin-left: 20px;
 }

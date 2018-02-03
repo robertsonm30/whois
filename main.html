@@ -12,17 +12,9 @@
 
     <!-- LINK TO BOOTSTRAP GOES HERE -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
@@ -30,34 +22,84 @@
     <!-- Compiled and minified JavaScript -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script> -->
 
+    <!-- including Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-</head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
 </head>
 
 <body background="assets/images/bc.jpg">
+    <p><a href='index.html'><i class="w3-jumbo w3-spin fa fa-home"></i></a></p>
+
     <div class="container-fluid">
         <div id="main">
-            <form>
-                <div class="form-group">
-                    <label id="name" for="search">Process Personality Profile For Reddit Topic:</label>
-                    <input type="text" class="form-control" id="search">
-                </div>
-                <button type="submit" id="submit" class="btn btn-primary">Analyze</button>
-                <!-- <a class="waves-effect waves-light btn-large" href="chart.html">.</a> -->
-            </form>
+            <p id="name">Process Personality Profile For Reddit Topic:</p>
+            <div id="input" class="row">
+                <form id="form" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="user_name">User Name:</label>
+                            <input id="user_name" type="text" class="validate">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class="input-field col s6">
+                            <label for="openness">Openness:</label>
+                            <input id="openness" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="conscientiousness">Conscientiousness:</label>
+                            <input id="conscientiousness" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="extraversion">Extraversion:</label>
+                            <input id="extraversion" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="agreeableness">Agreeableness:</label>
+                            <input id="agreeableness" type="text" class="validate">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <label for="emotional_range">Emotional Range:</label>
+                            <input id="emotional_range" type="text" class="validate">
+                        </div>
+                    </div> -->
+                    <a class="waves-effect waves-light btn" id="submit">Submit</a>
+
+                </form>
+                <a id="tableD" href="table_proto.html">🚹</a>
+            </div>
 
             <img id="logo" width="250" height="250" src="assets/images/giphy.gif">
         </div>
-    </div>
-    <a href="chart.html"> <i class=" medium material-icons">arrow_forward</i></a>
 
+    </div>
+    <div id="analyze">
+
+        <canvas id="bar-chart" width="800" height="450"></canvas>
+    </div>
 </body>
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript" src="assets/javascript/main.js">
+<script type="text/javascript" src="assets/javascript/app.js">
 </script>
 
 </html>
