@@ -163,13 +163,15 @@ body {
     background-color: coral;
     border-radius: 30px;
     cursor: pointer;
-    margin-left: 50px;
+    margin-left: 10px;
     width: 150px;
     height: 50px;
     margin-top: 40px;
     font-family: fantasy;
     font-size: 25px;
-    border: hidden
+    border: hidden;
+    padding-top: 10px;
+    text-align: center;
 }
 
 #submit:hover {
@@ -309,7 +311,8 @@ th {
 
 #tableD {
     font-size: 50px;
-    margin-left: 110px;
+    margin-left: 65px;
+    margin-top: 20px;
 }
 
 .highlight {
@@ -325,22 +328,13 @@ th {
     height: 300px;
 }
 
+#userText {
+    font-size: 30px;
+}
+
 #user_name {
-    margin-left: 90px;
-}
-
-#openness {
-    margin-left: 95px;
-}
-
-#extraversion {
-    margin-left: 70px;
-}
-
-#agreeableness {
-    margin-left: 45px;
-}
-
-#emotional_range {
-    margin-left: 20px;
+    font-family: fantasy;
+    font-size: 30px;
+    color: coral;
+    margin-top: 30px;
 }
