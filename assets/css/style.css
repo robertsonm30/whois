@@ -160,15 +160,15 @@ body {
 }
 
 #submit {
-    background-color: coral;
-    border-radius: 30px;
+    background-color: gray;
+    border-radius: 10px;
     cursor: pointer;
     margin-left: 50px;
     width: 150px;
     height: 50px;
     margin-top: 20px;
-    font-family: fantasy;
-    font-size: 25px;
+ /*   font-family: fantasy;*/
+    font-size: 15px;
 }
 
 #search {
