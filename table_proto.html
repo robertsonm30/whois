@@ -14,13 +14,20 @@
     <!-- LINK TO BOOTSTRAP GOES HERE -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.jpg" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
+<body id="tablePage">
     <div class="card card-fluid">
         <div id="tableHeader" class="card-header">
+            <p><a href='index.html'><i id="home" class="w3-jumbo w3-spin fa fa-home"></i></a></p>
             Reddit Users Personality Table
-            <!-- <button type='button' class='btn btn-success' id='update'>Update</button> -->
         </div>
         <div class="container" id="tableContainer">
             <div class="row">
@@ -39,14 +46,16 @@
                     <tbody>
                     </tbody>
                 </table>
+                <br>
+                <br>
             </div>
         </div>
     </div>
+    <div>
+        <canvas id="myChart" width="800" height="450"></canvas>
+    </div>
 </body>
-<!--Import jQuery before materialize.js-->
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 
-<!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 <!-- Initialize Firebase .JS -->

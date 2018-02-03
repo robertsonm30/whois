@@ -148,103 +148,56 @@ $(document).ready(function() {
 
 
     // This event handler changes the mouse type to a clickable hand when over a name
-    $("#header tr:has(td)").mouseover(function(e) {
+    $(document).on("mouseover", "#header tr:has(td)", function(e) {
         $(this).css("cursor", "pointer");
     });
 
-    // This event handler highlights the name when clicked
-    $("#header tr:has(td)").click(function(e) {
+
+    // This event handler highlights the name when clicked and also renders the chart
+    $(document).on("click", "#header tr:has(td)", function(e) {
         $("#header td").removeClass("highlight");
         var clickedCell = $(e.target).closest("td");
         clickedCell.addClass("highlight");
+        $('#' + clickedCell.parent().attr('id')).each(function(index, tr) {
+            var rowData = $('td', tr).map(function(index, td) {
+                return $(td).text();
+            });
+            var chartData = [parseFloat(rowData[2]), parseFloat(rowData[3]), parseFloat(rowData[4]), parseFloat(rowData[5]), parseFloat(rowData[6])];
+            console.log(chartData);
+            renderChart(chartData);
+        });
+
     });
 
 });
 
+function renderChart(chartData) {
+    var ctx = document.getElementById('myChart').getContext('2d');
 
-
-
-//Initialize Firebase Anitha's firebase
-// var config = {
-//     apiKey: "AIzaSyD3ZxX10HVxgcL5LjoGS-ZYKW1-D2BJo1s",
-//     authDomain: "whois-405ee.firebaseapp.com",
-//     databaseURL: "https://whois-405ee.firebaseio.com",
-//     projectId: "whois-405ee",
-//     storageBucket: "whois-405ee.appspot.com",
-//     messagingSenderId: "381587866135"
-// };
-
-// firebase.initializeApp(config);
-
-// var database = firebase.database();
-
-// var usersArray = [];
-
-// // This call to the DB is going to retrieve the list of users and store them in the userArray array.
-// database.ref().on('value', function(userSnapshot) {
-//     console.log(userSnapshot.val());
-//     userSnapshot.forEach(element => {
-//         console.log(element.val().Name);
-//         usersArray.push(element.val().Name);
-//     });
-//     $.each(usersArray, function(i, obj) {
-//         var div_data = "<option value=" + obj + ">" + obj + "</option>";
-//         $(div_data).appendTo('#userList');
-//     });
-
-// });
-
-// $('#userList').change(function() {
-//     var selectedUser = $(this).find(":selected").text();
-//     console.log("selectedUser : " + selectedUser);
-//     renderChart(selectedUser);
-// });
-
-// function renderChart(user) {
-
-//     var childData = [];
-
-//     // event.preventDefault();
-
-//     var userRef = database.ref(user);
-//     console.log(user);
-//     var parentRef = userRef.parent;
-//     console.log("parentRef : " + parentRef);
-
-//     database.ref(parentRef).on('value', function(snapshot) {
-//         snapshot.forEach(function(childSnapshot) {
-//             childData.push(childSnapshot.val());
-//             console.log(childSnapshot.val());
-//         });
-
-//         console.log(childData);
-
-//         new Chart(document.getElementById("bar-chart"), {
-//             type: 'bar',
-//             data: {
-//                 labels: ["Agreeableness", "Conscientiousness", "EmotionalRange", "Extraversion", "Openness"],
-//                 datasets: [{
-//                     label: "Personality Chart",
-//                     backgroundColor: ["blue", "orange", "teal", "red", "purple"],
-//                     // data: [0.2, 0.4, 0.6, 0.8, 1.0]
-//                     data: childData
-//                 }]
-//             },
-//             // Configuration options go here
-//             options: {
-//                 legend: { display: false },
-//                 title: {
-//                     display: true,
-//                     text: 'Personality Data'
-//                 },
-//                 scales: {
-//                     yAxes: [{
-//                         ticks: {
-//                             beginAtZero: true
-//                         }
-//                     }]
-//                 }
-//             }
-//         });
-//     });
-// }
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Openness", "Conscientiousness", "Extraversion", "Agreeableness", "Emotional Range"],
+            datasets: [{
+                label: "Personality Chart",
+                backgroundColor: ["blue", "orange", "teal", "red", "purple"],
+                data: chartData
+            }]
+        },
+        // Configuration options go here
+        options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Personality Data'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+};
