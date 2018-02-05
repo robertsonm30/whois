@@ -47,13 +47,6 @@ $(document).ready(function() {
         var commentArray = [];
         var accuracy = 0;
 
-        //these items will come from Watson, but for now, they are grabed from the input page    
-        var inputOpen = $("#openness").val();
-        var inputCons = $("#conscientiousness").val();
-        var inputExt = $("#extraversion").val();
-        var inputAgree = $("#agreeableness").val();
-        var inputEmot = $("#emotional_range").val();
-
 
         //get a snapshot of the database and create an Array with all of the names currently stored
         database.ref().on("child_added", function(childSnapshot) {
