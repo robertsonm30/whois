@@ -224,14 +224,21 @@ function renderChart(chartData) {
           method: "POST",
           data: arg1
     }).then(function(response) {
+        var op = response.personality[0].percentile.toFixed(3);
+        var co = response.personality[1].percentile.toFixed(3);
+        var ex = response.personality[2].percentile.toFixed(3);
+        var ag = response.personality[3].percentile.toFixed(3);
+        var em = response.personality[4].percentile.toFixed(3);
+
         firebase.database().ref().push ({
             Name: arg2,
             Accuracy: arg3,
-            Openness: response.personality[0].percentile,
-            Conscientiousness: response.personality[1].percentile,
-            Extraversion: response.personality[2].percentile, 
-            Agreeableness: response.personality[3].percentile,
-            Emotional_Range: response.personality[4].percentile
+            Openness: op,
+            Conscientiousness: co,
+            Extraversion: ex, 
+            Agreeableness: ag,
+            Emotional_Range: em
+
         });
         console.log("IAMWATSON")
     });
