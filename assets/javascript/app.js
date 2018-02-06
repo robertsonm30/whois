@@ -34,7 +34,13 @@ $(document).ready(function() {
 
     // Get a reference to the database service
     var database = firebase.database();
+    
+    
+//initialize all modals  
+//____________________________________________________________________
 
+    $(".modal").modal();
+//____________________________________________________________________
 
     //This sextion grabs all of the input from the input page.  Note that in our production version, 
     //only the NAME will come from the input page, the rest of the content will come from Watson
@@ -48,13 +54,6 @@ $(document).ready(function() {
         var commentArray = [];
         var accuracy = 0;
 
-        //these items will come from Watson, but for now, they are grabed from the input page    
-        var inputOpen = $("#openness").val();
-        var inputCons = $("#conscientiousness").val();
-        var inputExt = $("#extraversion").val();
-        var inputAgree = $("#agreeableness").val();
-        var inputEmot = $("#emotional_range").val();
-
 
         //get a snapshot of the database and create an Array with all of the names currently stored
         database.ref().on("child_added", function(childSnapshot) {
@@ -67,7 +66,19 @@ $(document).ready(function() {
         console.log("duplicateName: " + duplicateName);
 
         if (duplicateName != "-1") {
-            alert(inputName + " is already in the Database");
+
+            
+// call a modal to alert to a duplicate name
+//____________________________________________________________________
+
+            $('#dupName').modal('open');
+//____________________________________________________________________
+
+       
+        
+        
+        
+        
         } else {
 
             var url = "https://www.reddit.com/user/" + inputName + ".json";
@@ -75,7 +86,19 @@ $(document).ready(function() {
 
             $.getJSON(url, function(response) {
 
-                for (i = 0; i < 25; i++) {
+//Add this variable to determine how many comments are returned in the Object
+//_____________________________________________________________________________________
+
+            var numComments = Object.keys(response.data.children).length;
+            
+
+// chamge the middle criteria to use the numComments obtainted above              
+            for (i=0; i<numComments; i++) {
+
+//_____________________________________________________________________________________
+                    
+                    
+                    
                     commentArray[i] = response.data.children[i].data.body;
                     console.log("commentArray[" + i + "] : " + commentArray[i]);
                 }
@@ -89,11 +112,28 @@ $(document).ready(function() {
 
                 console.log("computedStringLength: " + computedStringLength);
 
-                watson(cleanString, inputName, accuracy);
+  //check the string length to determine if we have at least 100 words to send to Watson
+//_____________________________________________________________________________________
 
-            });
+            if (computedStringLength < 100) {
+                 $('#shortString').modal('open');
+            }
+            else {
+                if (computedStringLength < 500) {
+                    accuracy = 0;
+                    watson(cleanString, inputName, accuracy);
+                }
+                else {
+                    accuracy = 1;
+                    watson(cleanString, inputName, accuracy);
+                }
+            }
+          });
+//___________________________________________________________________________________
+
+
         }
-        // window.location.href = "table_proto.html";
+
     });
 
     //whenever the database changes, pull the database contents and update the chart
@@ -213,24 +253,29 @@ $(document).ready(function() {
 
     function watson(arg1, arg2, arg3) {
         $.ajax({
-            beforeSend: function(xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa('b70d03c0-98b6-4779-a114-492044d84740' + ":" + 'kxEYfXWtvODD'));
-            },
-            url: "https://cors-anywhere.herokuapp.com/https://gateway.watsonplatform.net/personality-insights/api/v3/profile?version=2017-10-13",
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            method: "POST",
-            data: arg1
-        }).then(function(response) {
-            firebase.database().ref(arg2).set({
-                Name: arg2,
-                Accuracy: arg3,
-                Openness: response.personality[0].percentile,
-                Conscientiousness: response.personality[1].percentile,
-                Extraversion: response.personality[2].percentile,
-                Agreeableness: response.personality[3].percentile,
-                Emotional_Range: response.personality[4].percentile,
-                watson_word_count_message: response.word_count_message
-            });
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Authorization", "Basic " + btoa('b70d03c0-98b6-4779-a114-492044d84740' + ":" + 'kxEYfXWtvODD')); },
+          url: "https://cors-anywhere.herokuapp.com/https://gateway.watsonplatform.net/personality-insights/api/v3/profile?version=2017-10-13",
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          method: "POST",
+          data: arg1
+    }).then(function(response) {
+        var op = response.personality[0].percentile.toFixed(3);
+        var co = response.personality[1].percentile.toFixed(3);
+        var ex = response.personality[2].percentile.toFixed(3);
+        var ag = response.personality[3].percentile.toFixed(3);
+        var em = response.personality[4].percentile.toFixed(3);
+
+        firebase.database().ref().push ({
+            Name: arg2,
+            Accuracy: arg3,
+            Openness: op,
+            Conscientiousness: co,
+            Extraversion: ex, 
+            Agreeableness: ag,
+            Emotional_Range: em
+
+        });
             console.log("I AM WATSON");
         });
     };
@@ -266,7 +311,9 @@ $(document).ready(function() {
         var actualStringLength = rawStringLength - spaceCount;
         return actualStringLength;
     }
+    
 
+    //NewFunction Here
     function getMessageByName(name) {
         var database = firebase.database();
         database.ref(name).on('value', function(snapshot) {
@@ -276,3 +323,7 @@ $(document).ready(function() {
         });
     }
 });
+
+
+
+
