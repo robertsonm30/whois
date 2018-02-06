@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <head>
     <title>
         Who is
@@ -16,11 +17,13 @@
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+         <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+   
 
     <!-- including Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
@@ -35,6 +38,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+
 
 </head>
 
@@ -82,6 +87,7 @@
                             <input id="emotional_range" type="text" class="validate">
                         </div>
                     </div> -->
+                    
                     <a class="waves-effect waves-light btn" id="submit">Submit</a>
                 </form>
                 <br>
@@ -97,6 +103,31 @@
 
         <canvas id="bar-chart" width="800" height="450"></canvas>
     </div>
+
+
+<!-- Modal for duplicate name -->
+  <div id="dupName" class="modal">
+    <div class="modal-content">
+      <h4>Duplicate Name Found!</h4>
+      <p>It looks like the user you are searching for already exists in our database.  Please take a look in the table of users that have alreay been searched for their name and click on it to get their results.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK!</a>
+    </div>
+  </div>
+
+<!-- Modal for short string data -->
+  <div id="shortString" class="modal">
+    <div class="modal-content">
+      <h4>Not Enough Data!</h4>
+      <p>Unfortunately, there isn't enough comment data for this user for us to accutately determine their personality index.  Please choose a different user with more data.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK!</a>
+    </div>
+  </div>
+
+
 </body>
 <!--Import jQuery before materialize.js-->
 
