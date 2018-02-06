@@ -22,43 +22,62 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body id="tablePage">
     <div class="card card-fluid">
-        <div id="tableHeader" class="card-header">
-            <p><a href='index.html'><i id="home" class="w3-jumbo w3-spin fa fa-home"></i></a></p>
-            Reddit Users Personality Table
-        </div>
-        <div class="container" id="tableContainer">
-            <div class="row">
-                <table id="header" class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Select</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Openess</th>
-                            <th scope="col">Conscientiousness</th>
-                            <th scope="col">Extraversion</th>
-                            <th scope="col">Agreeableness</th>
-                            <th scope="col">Emotional Range</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-                <br>
-                <br>
+        <div id="tableContainer">
+            <div id="tableHeader" class="card-header">
+                <p><a href='index.html'><i id="home" class="w3-jumbo w3-spin fa fa-home"></i></a></p>
+                <a id="arrow" href="main.html">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </a>
+                Reddit Users Personality Table
+
+            </div>
+            <div class="container" id="tableContainer">
+
+                <div class="row">
+                    <table id="header" class="table">
+                        <thead align="center">
+                            <tr>
+                                <th scope="col">Del</th>
+                                <th scope="col" style="text-align:center">Name</th>
+                                <th scope="col">Openess</th>
+                                <th scope="col">Conscientiousness</th>
+                                <th scope="col">Extraversion</th>
+                                <th scope="col">Agreeableness</th>
+                                <th scope="col">Emotional Range</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                </div>
             </div>
         </div>
     </div>
-    <div>
-        <canvas id="myChart" width="800" height="450"></canvas>
     </div>
-</body>
 
+    <div id="warning"></div>
+
+    <div id="chartContainer">
+        <canvas id="myChart" width="250" height="100"></canvas>
+    </div>
+    <footer>
+        Copyright <i class="fa fa-copyright"></i> 2018
+    </footer>
+</body>
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 <!-- Initialize Firebase .JS -->
