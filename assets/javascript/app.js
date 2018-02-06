@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         } else {
 
-            var url = "https://www.reddit.com/user/" + inputName + ".json";
+            var url = "https://www.reddit.com/user/" + inputName +  "/comments.json";
             console.log(url);
 
             $.getJSON(url, function(response) {
