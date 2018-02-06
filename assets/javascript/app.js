@@ -3,6 +3,8 @@ $(document).ready(function() {
     var moveForce = 30; // max popup movement in pixels
     var rotateForce = 20; // max popup rotation in deg
 
+
+
     $(document).mousemove(function(e) {
         var docX = $(document).width();
         var docY = $(document).height();
@@ -35,6 +37,12 @@ $(document).ready(function() {
     var database = firebase.database();
 
 
+//initialize all modals  
+//____________________________________________________________________
+
+    $(".modal").modal();
+//____________________________________________________________________
+
     //This sextion grabs all of the unput from the input page.  Note that in our production version, 
     //only the NAME will come from the input page, the rest of the content will come from Watson
 
@@ -46,6 +54,13 @@ $(document).ready(function() {
         var nameArray = [];
         var commentArray = [];
         var accuracy = 0;
+
+        //these items will come from Watson, but for now, they are grabed from the input page    
+        var inputOpen = $("#openness").val();
+        var inputCons = $("#conscientiousness").val();
+        var inputExt = $("#extraversion").val();
+        var inputAgree = $("#agreeableness").val();
+        var inputEmot = $("#emotional_range").val();
 
 
         //get a snapshot of the database and create an Array with all of the names currently stored
@@ -59,15 +74,32 @@ $(document).ready(function() {
         console.log("duplicateName: " + duplicateName);
 
         if (duplicateName != "-1") {
-            alert(inputName + " is already in the Database");
+
+// call a modal to alert to a duplicate name
+//____________________________________________________________________
+
+            $('#dupName').modal('open');
+//____________________________________________________________________
+
+
         } else {
 
             var url= "https://www.reddit.com/user/" + inputName + ".json";
             console.log(url);
 
             $.getJSON(url, function(response){
-              
-            for (i=0; i<25; i++) {
+
+//Add this variable to determine how many comments are returned in the Object
+//_____________________________________________________________________________________
+
+            var numComments = Object.keys(response.data.children).length;
+            
+
+// chamge the middle criteria to use the numComments obtainted above              
+            for (i=0; i<numComments; i++) {
+
+//_____________________________________________________________________________________
+
                 commentArray[i] = response.data.children[i].data.body;
                 console.log("commentArray[" + i + "] : " + commentArray[i]);
             }
@@ -81,12 +113,26 @@ $(document).ready(function() {
 
             var computedStringLength = countString(cleanString);
 
-            console.log ("computedStringLength: " + computedStringLength);
+            console.log("stringLength: " + computedStringLength);
 
-            watson(cleanString, inputName, accuracy);
+//check the string length to determine if we have at least 100 words to send to Watson
+//_____________________________________________________________________________________
 
-            });
-
+            if (computedStringLength < 100) {
+                 $('#shortString').modal('open');
+            }
+            else {
+                if (computedStringLength < 500) {
+                    accuracy = 0;
+                    watson(cleanString, inputName, accuracy);
+                }
+                else {
+                    accuracy = 1;
+                    watson(cleanString, inputName, accuracy);
+                }
+            }
+          });
+//___________________________________________________________________________________
 
 
         }
