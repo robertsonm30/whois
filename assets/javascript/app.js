@@ -119,9 +119,28 @@ $(document).ready(function() {
                         watson(cleanString, inputName, accuracy);
                     }
                 }
+                
+                
+                
+     //function to trigger no username found Modal.
+            }, function(data, status){
+            var check = data;
+            console.log(status);
+          }).fail(function(error){
+            $('#noName').modal('open');
+                
+                
+                
             });
         }
-        // window.location.href = "table_proto.html";
+
+        
+        
+        // This clears the input form
+        
+         $("#user_name").val("");
+         return;   
+        
     });
 
     //whenever the database changes, pull the database contents and update the chart
@@ -264,9 +283,11 @@ $(document).ready(function() {
                 Extraversion: response.personality[2].percentile.toFixed(3),
                 Agreeableness: response.personality[3].percentile.toFixed(3),
                 Emotional_Range: response.personality[4].percentile.toFixed(3),
-                watson_word_count_message: response.word_count_message
+                watson_word_count_message: response.word_count_message || null
             });
-            console.log("I AM WATSON");
+                        
+            window.location = "table_proto.html";
+            
         });
     };
 
