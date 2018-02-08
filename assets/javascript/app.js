@@ -80,7 +80,7 @@ $(document).ready(function() {
 
         } else {
 
-            var url = "https://www.reddit.com/user/" + inputName +  "/comments.json";
+            var url = "https://www.reddit.com/user/" + inputName + "/comments.json";
             console.log(url);
 
             $.getJSON(url, function(response) {
@@ -187,6 +187,12 @@ $(document).ready(function() {
 
     // This event handler highlights the name when clicked and also renders the chart
     $(document).on("click", "#header tr:has(td)", function(e) {
+
+        //--------------------changes-------------------
+        $('#warning').empty();
+        $('#warning').removeClass();
+        //--------------------changes-------------------
+
         $("#header td").removeClass("highlight");
         var clickedCell = $(e.target).closest("td");
         clickedCell.addClass("highlight");
@@ -195,6 +201,7 @@ $(document).ready(function() {
                 return $(td).text();
             });
             var chartData = [parseFloat(rowData[2]), parseFloat(rowData[3]), parseFloat(rowData[4]), parseFloat(rowData[5]), parseFloat(rowData[6])];
+            console.log("hello");
             console.log(chartData);
             renderChart(chartData);
             getMessageByName(rowData[1]);
@@ -259,13 +266,6 @@ $(document).ready(function() {
                 Emotional_Range: response.personality[4].percentile.toFixed(3),
                 watson_word_count_message: response.word_count_message
             });
-
-
-
-
-
-
-
             console.log("I AM WATSON");
         });
     };
@@ -301,13 +301,15 @@ $(document).ready(function() {
         var actualStringLength = rawStringLength - spaceCount;
         return actualStringLength;
     }
-
+    //-------------------------------changes-----------------------
     function getMessageByName(name) {
         var database = firebase.database();
         database.ref(name).on('value', function(snapshot) {
-            console.log(snapshot.val().watson_word_count_message);
-            $('#warning').addClass("warning glyphicon glyphicon-warning-sign");
-            $('#warning').html(' ' + snapshot.val().watson_word_count_message);
+            if (snapshot.val().Accuracy === 0) {
+                $('#warning').addClass("warning glyphicon glyphicon-warning-sign");
+                $('#warning').html(" " + "There  were less than 500 words in the input. For better result we need more words.");
+            }
         });
     }
 });
+//------------------------------------------------
