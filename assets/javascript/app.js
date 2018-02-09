@@ -3,6 +3,7 @@ $(document).ready(function() {
     var moveForce = 30; // max popup movement in pixels
     var rotateForce = 20; // max popup rotation in deg
     var watson_word_count_message;
+    var userName;
 
     $(document).mousemove(function(e) {
         var docX = $(document).width();
@@ -36,10 +37,10 @@ $(document).ready(function() {
     var database = firebase.database();
 
     //initialize all modals  
-    //____________________________________________________________________
+    
 
     $(".modal").modal();
-    //____________________________________________________________________
+   
     //This sextion grabs all of the input from the input page.  Note that in our production version, 
     //only the NAME will come from the input page, the rest of the content will come from Watson
 
@@ -64,24 +65,24 @@ $(document).ready(function() {
         database.ref().on("child_added", function(childSnapshot) {
             var name = childSnapshot.val().Name;
             nameArray.push(name);
-            console.log(nameArray);
+            
         });
 
         duplicateName = nameArray.indexOf(inputName);
-        console.log("duplicateName: " + duplicateName);
+        
 
         if (duplicateName != "-1") {
 
             // call a modal to alert to a duplicate name
-            //____________________________________________________________________
+            
 
             $('#dupName').modal('open');
-            //____________________________________________________________________
+            
 
         } else {
 
             var url = "https://www.reddit.com/user/" + inputName + "/comments.json";
-            console.log(url);
+            
 
             $.getJSON(url, function(response) {
 
@@ -91,20 +92,20 @@ $(document).ready(function() {
                 var numComments = Object.keys(response.data.children).length;
 
 
-                // chamge the middle criteria to use the numComments obtainted above              
+                // change the middle criteria to use the numComments obtainted above              
                 for (i = 0; i < numComments; i++) {
                     commentArray[i] = response.data.children[i].data.body;
-                    console.log("commentArray[" + i + "] : " + commentArray[i]);
+                    
                 }
 
                 var commentString = commentArray.toString();
-                console.log("commentString" + commentString);
+                
 
                 var cleanString = cleaner(commentString);
 
                 var computedStringLength = countString(cleanString);
 
-                console.log("computedStringLength: " + computedStringLength);
+                
                 //check the string length to determine if we have at least 100 words to send to Watson
                 //_____________________________________________________________________________________
 
@@ -125,7 +126,7 @@ $(document).ready(function() {
      //function to trigger no username found Modal.
             }, function(data, status){
             var check = data;
-            console.log(status);
+            
           }).fail(function(error){
             $('#noName').modal('open');
                 
@@ -194,7 +195,7 @@ $(document).ready(function() {
     $(document).on("click", ".btn", function(event) {
         event.preventDefault();
         var button_index = $(this).attr("id");
-        console.log(button_index);
+        
         $("#row" + button_index).remove();
         database.ref(button_index + "/").remove();
     });
@@ -207,10 +208,11 @@ $(document).ready(function() {
     // This event handler highlights the name when clicked and also renders the chart
     $(document).on("click", "#header tr:has(td)", function(e) {
 
-        //--------------------changes-------------------
+        
         $('#warning').empty();
         $('#warning').removeClass();
-        //--------------------changes-------------------
+        userName = $(this).attr('class');
+       
 
         $("#header td").removeClass("highlight");
         var clickedCell = $(e.target).closest("td");
@@ -220,8 +222,7 @@ $(document).ready(function() {
                 return $(td).text();
             });
             var chartData = [parseFloat(rowData[2]), parseFloat(rowData[3]), parseFloat(rowData[4]), parseFloat(rowData[5]), parseFloat(rowData[6])];
-            console.log("hello");
-            console.log(chartData);
+
             renderChart(chartData);
             getMessageByName(rowData[1]);
         });
@@ -241,7 +242,8 @@ $(document).ready(function() {
                 datasets: [{
                     label: "Personality Chart",
                     backgroundColor: ["blue", "orange", "teal", "red", "purple"],
-                    data: chartData
+                    data: chartData,
+                    fontSize: 30,
                 }]
             },
             // Configuration options go here
@@ -257,9 +259,16 @@ $(document).ready(function() {
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            fontSize: 20
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontSize: 20
                         }
                     }]
+                    
                 }
             }
         });
@@ -316,13 +325,12 @@ $(document).ready(function() {
                 spaceCount++
             }
         }
-        console.log("rawStringLength: " + rawStringLength);
-        console.log("spaceCount: " + spaceCount);
+
 
         var actualStringLength = rawStringLength - spaceCount;
         return actualStringLength;
     }
-    //-------------------------------changes-----------------------
+
     function getMessageByName(name) {
         var database = firebase.database();
         database.ref(name).on('value', function(snapshot) {
