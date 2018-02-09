@@ -150,7 +150,7 @@ body {
 #name {
     color: coral;
     font-size: 30px;
-    font-family: fantasy;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 50px;
     padding-top: 30px;
 }
@@ -292,6 +292,12 @@ label {
     padding-top: 20px;
 }
 
+#tableContainer {
+    margin-top: 70px;
+    margin-left: 150px;
+    border-radius: 20px;
+}
+
 #header {
     background: black;
     margin-top: 30px;
@@ -300,7 +306,7 @@ label {
 }
 
 th {
-    color: gold;
+    color: coral;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
 }
@@ -311,13 +317,12 @@ th {
     font-size: 30px;
     margin-left: 25px;
     margin-top: 20px;
-    color: teal;
+    color: coral;
     padding-top: 30px;
 }
 
 .highlight {
-    background-color: Yellow;
-    color: Green;
+    background-color: coral;
 }
 
 #tablePage {
@@ -333,14 +338,26 @@ th {
 }
 
 #user_name {
-    font-family: fantasy;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
     color: coral;
     margin-top: 50px;
 }
 
+.table-curved {
+    border-collapse: separate;
+    border: solid #ddd 1px;
+    border-radius: 30px;
+    border-left: 0px;
+    border-top: 0px;
+}
+
 span {
     text-decoration: none;
+}
+
+#tableContainer {
+    border-radius: 16px;
 }
 
 #chartContainer {
@@ -372,7 +389,8 @@ span {
 }
 
 .warning {
-    background: coral;
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
     border-radius: 20px;
     color: black;
     font-size: 25px;
@@ -460,8 +478,7 @@ footer {
     padding-bottom: 10px;
 }
 
-@media only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
     table,
     thead,
     tbody,
@@ -469,6 +486,10 @@ footer {
     td,
     tr {
         display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 200px;
     }
     tr:nth-of-type(1) {
         display: none;
@@ -477,31 +498,30 @@ footer {
         visibility: hidden;
     }
     td:nth-of-type(1):before {
-        color: gold;
-        content: "Del: ";
+        color: coral;
     }
     td:nth-of-type(2):before {
-        color: gold;
+        color: coral;
         content: "Name: ";
     }
     td:nth-of-type(3):before {
-        color: gold;
+        color: coral;
         content: "Openess: ";
     }
     td:nth-of-type(4):before {
-        color: gold;
+        color: coral;
         content: "Conscientiousness: ";
     }
     td:nth-of-type(5):before {
-        color: gold;
+        color: coral;
         content: "Extraversion: ";
     }
     td:nth-of-type(6):before {
-        color: gold;
+        color: coral;
         content: "Agreeableness: ";
     }
     td:nth-of-type(7):before {
-        color: gold;
+        color: coral;
         content: "Emotional Range: ";
     }
     body {
@@ -509,7 +529,7 @@ footer {
     }
     #logo {
         position: relative;
-        top: 130px;
+        top: 150px;
         right: 70px;
     }
     #indexfooter {
@@ -525,7 +545,8 @@ footer {
     }
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
     table,
     thead,
     tbody,
@@ -533,6 +554,10 @@ footer {
     td,
     tr {
         display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 100px;
     }
     tr:nth-of-type(1) {
         display: none;
@@ -541,31 +566,97 @@ footer {
         visibility: hidden;
     }
     td:nth-of-type(1):before {
-        color: gold;
-        content: "Del: ";
+        color: coral;
     }
     td:nth-of-type(2):before {
-        color: gold;
+        color: coral;
         content: "Name: ";
     }
     td:nth-of-type(3):before {
-        color: gold;
+        color: coral;
         content: "Openess: ";
     }
     td:nth-of-type(4):before {
-        color: gold;
+        color: coral;
         content: "Conscientiousness: ";
     }
     td:nth-of-type(5):before {
-        color: gold;
+        color: coral;
         content: "Extraversion: ";
     }
     td:nth-of-type(6):before {
-        color: gold;
+        color: coral;
         content: "Agreeableness: ";
     }
     td:nth-of-type(7):before {
-        color: gold;
+        color: coral;
+        content: "Emotional Range: ";
+    }
+    body {
+        height: 100%;
+    }
+    #logo {
+        position: relative;
+        top: 150px;
+        right: 70px;
+    }
+    #indexfooter {
+        background-image: url("assets/images/icon.png");
+        height: 1200px;
+        margin-top: 0px;
+    }
+    #icon {
+        visibility: hidden;
+    }
+    #watsonIcon {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 100px;
+    }
+    tr:nth-of-type(1) {
+        display: none;
+    }
+    th {
+        visibility: hidden;
+    }
+    td:nth-of-type(1):before {
+        color: coral;
+    }
+    td:nth-of-type(2):before {
+        color: coral;
+        content: "Name: ";
+    }
+    td:nth-of-type(3):before {
+        color: coral;
+        content: "Openess: ";
+    }
+    td:nth-of-type(4):before {
+        color: coral;
+        content: "Conscientiousness: ";
+    }
+    td:nth-of-type(5):before {
+        color: coral;
+        content: "Extraversion: ";
+    }
+    td:nth-of-type(6):before {
+        color: coral;
+        content: "Agreeableness: ";
+    }
+    td:nth-of-type(7):before {
+        color: coral;
         content: "Emotional Range: ";
     }
     #main {
@@ -589,7 +680,7 @@ footer {
     #logo {
         position: relative;
         top: 330px;
-        right: 70px;
+        right: 20px;
     }
     #tableD {
         position: relative;
@@ -617,6 +708,10 @@ footer {
     td,
     tr {
         display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 100px;
     }
     tr:nth-of-type(1) {
         display: none;
@@ -625,31 +720,30 @@ footer {
         visibility: hidden;
     }
     td:nth-of-type(1):before {
-        color: gold;
-        content: "Del: ";
+        color: coral;
     }
     td:nth-of-type(2):before {
-        color: gold;
+        color: coral;
         content: "Name: ";
     }
     td:nth-of-type(3):before {
-        color: gold;
+        color: coral;
         content: "Openess: ";
     }
     td:nth-of-type(4):before {
-        color: gold;
+        color: coral;
         content: "Conscientiousness: ";
     }
     td:nth-of-type(5):before {
-        color: gold;
+        color: coral;
         content: "Extraversion: ";
     }
     td:nth-of-type(6):before {
-        color: gold;
+        color: coral;
         content: "Agreeableness: ";
     }
     td:nth-of-type(7):before {
-        color: gold;
+        color: coral;
         content: "Emotional Range: ";
     }
     #indexfooter {
