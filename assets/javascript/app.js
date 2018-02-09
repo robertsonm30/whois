@@ -167,6 +167,7 @@ $(document).ready(function() {
         var delete_button = $("<span>");
 
         row.attr("id", "row" + key);
+        row.attr("class", key);
         delete_button.attr("id", key);
         delete_button.addClass("btn glyphicon glyphicon-trash");
 
