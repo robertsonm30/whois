@@ -252,7 +252,7 @@ $(document).ready(function() {
                 legend: { display: false },
                 title: {
                     display: true,
-                    text: 'Personality Profile',
+                    text: 'Personality Profile For ' + userName, 
                     fontSize: 30,
                     fontColor: "black"
                 },
