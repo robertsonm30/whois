@@ -8,6 +8,7 @@
     <!-- LINK TO CSS GOES HERE -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    <!-- LINK TO ADD FAVICON TO THE PAGE -->
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.jpg" />
 
     <!-- LINK TO BOOTSTRAP GOES HERE -->
@@ -22,27 +23,29 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
-    <!-- including Firebase -->
+    <!-- including Firebase-app -->
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
 
+    <!-- Initialize Firebase-database .JS -->
     <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
+    <!-- LINK TO GET ICONS FROM MATERIALIZE -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- LINK TO ADD ICONS FROM W3SCHOOL -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
+    <!-- LINK TO ADD FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
 </head>
 
-<body background="assets/images/bc.jpg">
-    <p><a href='index.html'><i class="w3-jumbo w3-spin fa fa-home"></i></a></p>
+<body id="mainPage" background="assets/images/bc.jpg">
+    <p><a href='index.html'><i class="w3-jumbo fa fa-home"></i></a></p>
 
     <div class="container-fluid">
         <div id="main">
-            <p id="name">Process Personality Profile For Reddit Topic:</p>
+            <p id="name">Get personality profile for Reddit user:</p>
             <div id="input" class="row">
                 <form id="form" class="col s12">
                     <div class="row">
@@ -53,15 +56,13 @@
                     </div>
                     <span class="waves-effect waves-light btn" id="submit">Submit</span>
                 </form>
-
-                <a id="tableD" href="table_proto.html" style="text-decoration:none">Analyze the person 🚹</a>
-
+                <a id="tableD" href="table_proto.html" style="text-decoration:none">Go To Results 🚹</a>
             </div>
 
             <img id="logo" width="250" height="250" src="assets/images/giphy.gif">
         </div>
     </div>
-
+    <!--------------- Changes -------------------------->
     <!-- Modal for duplicate name -->
     <div id="dupName" class="modal">
         <div class="modal-content">
@@ -69,7 +70,7 @@
             <p>It looks like the user you are searching for already exists in our database. Please take a look in the table of users that have alreay been searched for their name and click on it to get their results.</p>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK!</a>
+            <a href="#!" id="comfirmOkay" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
         </div>
     </div>
 
@@ -80,11 +81,23 @@
             <p>Unfortunately, there isn't enough comment data for this user for us to accutately determine their personality index. Please choose a different user with more data.</p>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK!</a>
+            <a href="#!" id="comfirm" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
         </div>
     </div>
+
+    <!--Modal for no name-->
+    <div id="noName" class="modal">
+        <div class="modal-content">
+            <h4>No User found!</h4>
+            <p>Oops! The username does not exist. Please make sure the username is spelled correctly and try again.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" id="confirmButton" class="modal-action modal-close waves-effect waves-green btn-flat">OK!</a>
+        </div>
+    </div>
+    <!--------------- Changes -------------------------->
 </body>
-<!--Import jQuery before materialize.js-->
+
 
 <script type="text/javascript" src="assets/javascript/app.js">
 </script>

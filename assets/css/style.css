@@ -1,496 +1,758 @@
-        img {
-            opacity: 0.9;
-            filter: alpha(opacity=50);
-        }
-        
-        em {
-            color: coral;
-        }
-        
-        #title {
-            color: white;
-            font-size: 50px;
-            font-family: 'Times New Roman', Times, serif;
-            font-style: oblique;
-            margin-top: 30px;
-            margin-left: 80px;
-            animation-name: zoomIn;
-            animation-duration: 5s;
-        }
-        
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale3d(.3, .3, .3);
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-        
-        #icon {
-            margin-left: 110px;
-            color: white;
-        }
-        
-        body {
-            height: 100%;
-        }
-        
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-        
-        .moving-zone {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300px;
-            height: 120px;
-            margin: -60px 0 0 -150px;
-            perspective: 800px;
-            animation-name: bounceInUp;
-            animation-duration: 5s;
-            margin-top: 50px;
-        }
-        
-        @keyframes bounceInUp {
-            from,
-            60%,
-            75%,
-            90%,
-            to {
-                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            }
-            from {
-                opacity: 0;
-                transform: translate3d(0, 3000px, 0);
-            }
-            60% {
-                opacity: 1;
-                transform: translate3d(0, -20px, 0);
-            }
-            75% {
-                transform: translate3d(0, 10px, 0);
-            }
-            90% {
-                transform: translate3d(0, -5px, 0);
-            }
-            to {
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        
-        .popup {
-            position: absolute;
-            width: 300px;
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 20px 0 20px 0;
-            cursor: pointer;
-            transform-style: preserve-3d;
-            background: -webkit-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
-            background: -moz-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
-            background: -ms-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
-            background: -o-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
-            background: linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
-        }
-        
-        .popup-text {
-            text-decoration: none;
-        }
-        
-        .popup:before {
-            content: '';
-            position: absolute;
-            left: 5%;
-            top: 5%;
-            width: 90%;
-            height: 90%;
-            border-radius: inherit;
-            background: rgba(0, 0, 0, .1);
-            box-shadow: 0 0 40px 20px rgba(0, 0, 0, .1);
-            transform: translateZ(-100px);
-        }
-        
-        .popup-content {
-            /* background: #444; */
-            background: coral;
-            padding: 20px;
-            box-sizing: border-box;
-            border-radius: 10px 0 10px 0;
-        }
-        
-        .popup-text {
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-            line-height: 30px;
-            font-weight: 100;
-            text-align: center;
-            transform: translateZ(15px);
-        }
-        
-        .popup-text b {
-            color: rgb;
-            font-weight: 300;
-        }
-        
-        #main {
-            background-color: black;
-            border-radius: 50px;
-            margin-top: 20px;
-            margin-bottom: 400px;
-            margin-left: 80px;
-            margin-right: 80px;
-            height: 600px;
-        }
-        
-        .link {
-            text-align: center;
-            font-size: 20px;
-        }
-        
-        #name {
-            color: coral;
-            font-size: 30px;
-            font-family: fantasy;
-            margin-left: 50px;
-            padding-top: 30px;
-        }
-        
-        #submit {
-            background-color: coral;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-left: 10px;
-            width: 150px;
-            height: 50px;
-            margin-top: 40px;
-            font-family: fantasy;
-            font-size: 25px;
-            border: hidden;
-            padding-top: 10px;
-            text-align: center;
-        }
-        
-        #submit:hover {
-            background-color: teal;
-        }
-        
-        #search {
-            width: 600px;
-            height: 200px;
-            margin-left: 50px;
-            margin-top: 30px;
-            font-size: 30px;
-        }
-        
-        form {
-            display: inline;
-            float: left;
-        }
-        
-        #logo {
-            margin-top: 80px;
-            margin-right: 200px;
-            float: right;
-            display: inline;
-        }
-        
-        #input {
-            border: hidden;
-            width: 500px;
-            height: 400px;
-            display: inline;
-            float: left;
-            margin-left: 30px;
-            margin-top: 20px;
-            padding-top: 40px;
-        }
-        
-        .navbar-header {
-            display: inline;
-            float: left;
-        }
-        
-        #watsonIcon {
-            border-radius: 80px;
-            float: right;
-            margin-right: 100px;
-            margin-top: 30px;
-        }
-        
-        #favicon {
-            border-radius: 80px;
-        }
-        
-        .secondPage {
-            width: 800px;
-            height: 900px;
-        }
-        
-        .parallax-container {
-            height: 2000px;
-        }
-        
-        #pageOne {
-            margin-top: 250px;
-            margin-left: 100px;
-            color: gray;
-        }
-        
-        .container-fluid {
-            display: inline;
-            float: left;
-        }
-        
-        #pageTwo {
-            display: inline;
-            float: right;
-            margin-bottom: 700px;
-        }
-        
-        .w3-jumbo {
-            float: right;
-            margin-right: 60px;
-            cursor: pointer;
-        }
-        
-        #bar-chart {
-            margin-top: 500px;
-        }
-        
-        #analyze {
-            margin-top: 500px;
-        }
-        
-        label {
-            color: gold;
-            font-size: 25px;
-            font-family: fantasy;
-        }
-        
-        #tableDisplay {
-            background-color: coral;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-left: 50px;
-            width: 150px;
-            height: 50px;
-            margin-top: 30px;
-            font-family: fantasy;
-            font-size: 25px;
-            border: hidden;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-        
-        #tableHeader {
-            background-color: coral;
-            height: 100px;
-            text-align: center;
-            color: black;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 30px;
-            padding-top: 20px;
-        }
-        
-        #header {
-            background: black;
-            margin-top: 30px;
-            color: white;
-            font-size: 20px;
-        }
-        
-        th {
-            color: gold;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 20px;
-        }
-        
-        #tableD {
-            position: relative;
-            top: 60px;
-            font-size: 30px;
-            margin-left: 25px;
-            margin-top: 20px;
-            color: teal;
-            padding-top: 30px;
-        }
-        
-        .highlight {
-            background-color: Yellow;
-            color: Green;
-        }
-        
-        #tablePage {
-            overflow: scroll;
-        }
-        
-        .form {
-            margin-bottom: 20px;
-        }
-        
-        #userText {
-            font-size: 30px;
-        }
-        
-        #user_name {
-            font-family: fantasy;
-            font-size: 30px;
-            color: coral;
-            margin-top: 30px;
-        }
-        
-        span {
-            text-decoration: none;
-        }
-        
-        #chartContainer {
-            margin-top: 60px;
-            margin-right: 100px;
-            margin-bottom: 70px;
-            margin-left: 40px;
-        }
-        
-        #displayTable {
-            display: block;
-            margin-top: 40px;
-        }
-        
-        #tableIcon {
-            position: relative;
-            right: 300px;
-        }
-        
-        #arrow {
-            display: inline;
-            float: left;
-            margin-left: 60px;
-        }
-        
-        #table {
-            display: inline;
-            float: right;
-        }
-        
-        .warning {
-            background: coral;
-            border-radius: 20px;
-            color: black;
-            font-size: 25px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 20px;
-            margin: 30px 30px 10px 30px;
-            line-break: auto;
-            animation-name: bounceInLeft;
-            animation-duration: 4s;
-        }
-        
-        @keyframes bounceInLeft {
-            from,
-            60%,
-            75%,
-            90%,
-            to {
-                animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            }
-            0% {
-                opacity: 0;
-                transform: translate3d(-3000px, 0, 0);
-            }
-            60% {
-                opacity: 1;
-                transform: translate3d(25px, 0, 0);
-            }
-            75% {
-                transform: translate3d(-10px, 0, 0);
-            }
-            90% {
-                transform: translate3d(5px, 0, 0);
-            }
-            to {
-                transform: none;
-            }
-        }
-        
-        .highlight {
-            border-radius: 30px;
-        }
-        
-        .glyphicon {
-            padding-right: 20px;
-        }
-        
-        @media only screen and (max-width: 720px) {
-            #tableHeader {
-                font-size: 25px;
-            }
-            th {
-                font-size: 10px;
-            }
-            #home {
-                font-size: 20px;
-            }
-        }
-        
-        footer {
-            clear: both;
-            background-color: coral;
-            height: 80px;
-            text-align: center;
-            font-size: 20px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            padding-top: 20px;
-            padding-bottom: 10px;
-        }
-        
-        @media only screen and (max-width: 760px),
-        (min-device-width: 768px) and (max-device-width: 1024px) {
-            table,
-            thead,
-            tbody,
-            th,
-            td,
-            tr {
-                display: block;
-            }
-            tr:nth-of-type(1) {
-                display: none;
-            }
-            th {
-                visibility: hidden;
-            }
-            td:nth-of-type(1):before {
-                color: gold;
-                content: "Del: ";
-            }
-            td:nth-of-type(2):before {
-                color: gold;
-                content: "Name: ";
-            }
-            td:nth-of-type(3):before {
-                color: gold;
-                content: "Openess: ";
-            }
-            td:nth-of-type(4):before {
-                color: gold;
-                content: "Conscientiousness: ";
-            }
-            td:nth-of-type(5):before {
-                color: gold;
-                content: "Extraversion: ";
-            }
-            td:nth-of-type(6):before {
-                color: gold;
-                content: "Agreeableness: ";
-            }
-            td:nth-of-type(7):before {
-                color: gold;
-                content: "Emotional Range: ";
-            }
-        }
+img {
+    opacity: 0.9;
+    filter: alpha(opacity=50);
+}
+
+em {
+    color: coral;
+}
+
+#title {
+    color: white;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+    margin-top: 30px;
+    margin-left: 80px;
+    animation-name: zoomIn;
+    animation-duration: 5s;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+#icon {
+    margin-left: 110px;
+    color: white;
+}
+
+body {
+    background-size: cover;
+}
+
+.moving-zone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 120px;
+    margin: -60px 0 0 -150px;
+    perspective: 800px;
+    animation-name: bounceInUp;
+    animation-duration: 5s;
+    margin-top: 50px;
+}
+
+@keyframes bounceInUp {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    from {
+        opacity: 0;
+        transform: translate3d(0, 3000px, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(0, -20px, 0);
+    }
+    75% {
+        transform: translate3d(0, 10px, 0);
+    }
+    90% {
+        transform: translate3d(0, -5px, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.popup {
+    position: absolute;
+    width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px 0 20px 0;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    background: -webkit-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
+    background: -moz-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
+    background: -ms-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
+    background: -o-linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
+    background: linear-gradient(top left, white 50%, rgb(80, 98, 255) 50%);
+}
+
+.popup-text {
+    text-decoration: none;
+}
+
+.popup:before {
+    content: '';
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: inherit;
+    background: rgba(0, 0, 0, .1);
+    box-shadow: 0 0 40px 20px rgba(0, 0, 0, .1);
+    transform: translateZ(-100px);
+}
+
+.popup-content {
+    /* background: #444; */
+    background: coral;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px 0 10px 0;
+}
+
+.popup-text {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 100;
+    text-align: center;
+    transform: translateZ(15px);
+}
+
+.popup-text b {
+    color: rgb;
+    font-weight: 300;
+}
+
+#main {
+    background-color: black;
+    border-radius: 50px;
+    margin-top: 20px;
+    margin-bottom: 400px;
+    margin-left: 140px;
+    margin-right: 140px;
+    height: 550px;
+}
+
+.link {
+    text-align: center;
+    font-size: 20px;
+}
+
+#name {
+    color: coral;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 50px;
+    padding-top: 30px;
+}
+
+#submit {
+    background-color: coral;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 150px;
+    height: 50px;
+    margin-top: 40px;
+    font-family: fantasy;
+    font-size: 25px;
+    border: hidden;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#submit:hover {
+    background-color: teal;
+}
+
+#search {
+    width: 600px;
+    height: 200px;
+    margin-left: 50px;
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+form {
+    display: inline;
+    float: left;
+}
+
+#logo {
+    margin-top: 80px;
+    margin-right: 200px;
+    float: right;
+    display: inline;
+}
+
+#input {
+    border: hidden;
+    width: 500px;
+    height: 400px;
+    display: inline;
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding-top: 40px;
+}
+
+.navbar-header {
+    display: inline;
+    float: left;
+}
+
+#watsonIcon {
+    border-radius: 80px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+#favicon {
+    border-radius: 80px;
+}
+
+.secondPage {
+    width: 800px;
+    height: 900px;
+}
+
+.parallax-container {
+    height: 2000px;
+}
+
+#pageOne {
+    margin-top: 250px;
+    margin-left: 100px;
+    color: gray;
+}
+
+.container-fluid {
+    display: inline;
+    float: left;
+}
+
+#pageTwo {
+    display: inline;
+    float: right;
+    margin-bottom: 700px;
+}
+
+.w3-jumbo {
+    float: right;
+    margin-right: 60px;
+    cursor: pointer;
+}
+
+#bar-chart {
+    margin-top: 500px;
+}
+
+#analyze {
+    margin-top: 500px;
+}
+
+label {
+    color: gold;
+    font-size: 25px;
+    font-family: fantasy;
+}
+
+#tableDisplay {
+    background-color: coral;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-left: 50px;
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+    font-family: fantasy;
+    font-size: 25px;
+    border: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#tableHeader {
+    background-color: coral;
+    height: 100px;
+    text-align: center;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+#tableContainer {
+    border-radius: 20px;
+}
+
+#header {
+    background: black;
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+}
+
+th {
+    color: coral;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+#tableD {
+    position: relative;
+    top: 60px;
+    font-size: 30px;
+    margin-left: 25px;
+    margin-top: 20px;
+    color: coral;
+    padding-top: 30px;
+}
+
+.highlight {
+    background-color: coral;
+}
+
+#tablePage {
+    overflow: scroll;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+#userText {
+    font-size: 30px;
+}
+
+#user_name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    color: coral;
+    margin-top: 50px;
+}
+
+.table-curved {
+    border-collapse: separate;
+    border: solid #ddd 1px;
+    border-radius: 30px;
+    border-left: 0px;
+    border-top: 0px;
+}
+
+span {
+    text-decoration: none;
+}
+
+#tableContainer {
+    border-radius: 16px;
+}
+
+#chartContainer {
+    margin-top: 60px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    margin-left: 40px;
+}
+
+#displayTable {
+    display: block;
+    margin-top: 40px;
+}
+
+#tableIcon {
+    position: relative;
+    right: 300px;
+}
+
+#arrow {
+    display: inline;
+    float: left;
+    margin-left: 60px;
+}
+
+#table {
+    display: inline;
+    float: right;
+}
+
+.warning {
+    border: 1px solid black;
+    box-shadow: 10px 5px 5px black;
+    border-radius: 20px;
+    color: black;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin: 30px 130px 10px 130px;
+    line-break: auto;
+    animation-name: bounceInLeft;
+    animation-duration: 4s;
+}
+
+@keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        transform: translate3d(-3000px, 0, 0);
+    }
+    60% {
+        opacity: 1;
+        transform: translate3d(25px, 0, 0);
+    }
+    75% {
+        transform: translate3d(-10px, 0, 0);
+    }
+    90% {
+        transform: translate3d(5px, 0, 0);
+    }
+    to {
+        transform: none;
+    }
+}
+
+.highlight {
+    border-radius: 30px;
+}
+
+.glyphicon {
+    padding-right: 20px;
+}
+
+@media only screen and (max-width: 720px) {
+    #tableHeader {
+        font-size: 25px;
+    }
+    th {
+        font-size: 10px;
+    }
+    #home {
+        font-size: 20px;
+    }
+}
+
+#dupName,
+#shortString,
+#noName {
+    height: 300px;
+    border-radius: 30px;
+}
+
+#comfirm,
+#comfirmOkay,
+#confirmButton {
+    background-color: teal;
+    border-radius: 20px;
+    margin-right: 370px;
+}
+
+footer {
+    clear: both;
+    overflow: auto;
+    background-color: coral;
+    height: 60px;
+    text-align: center;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 200px;
+    }
+    tr:nth-of-type(1) {
+        display: none;
+    }
+    th {
+        visibility: hidden;
+    }
+    td:nth-of-type(1):before {
+        color: coral;
+    }
+    td:nth-of-type(2):before {
+        color: coral;
+        content: "Name: ";
+    }
+    td:nth-of-type(3):before {
+        color: coral;
+        content: "Openess: ";
+    }
+    td:nth-of-type(4):before {
+        color: coral;
+        content: "Conscientiousness: ";
+    }
+    td:nth-of-type(5):before {
+        color: coral;
+        content: "Extraversion: ";
+    }
+    td:nth-of-type(6):before {
+        color: coral;
+        content: "Agreeableness: ";
+    }
+    td:nth-of-type(7):before {
+        color: coral;
+        content: "Emotional Range: ";
+    }
+    body {
+        height: 100%;
+    }
+    #logo {
+        position: relative;
+        top: 150px;
+        right: 70px;
+    }
+    #indexfooter {
+        background-image: url("assets/images/icon.png");
+        height: 1200px;
+        margin-top: 0px;
+    }
+    #icon {
+        visibility: hidden;
+    }
+    #watsonIcon {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 100px;
+    }
+    tr:nth-of-type(1) {
+        display: none;
+    }
+    th {
+        visibility: hidden;
+    }
+    td:nth-of-type(1):before {
+        color: coral;
+    }
+    td:nth-of-type(2):before {
+        color: coral;
+        content: "Name: ";
+    }
+    td:nth-of-type(3):before {
+        color: coral;
+        content: "Openess: ";
+    }
+    td:nth-of-type(4):before {
+        color: coral;
+        content: "Conscientiousness: ";
+    }
+    td:nth-of-type(5):before {
+        color: coral;
+        content: "Extraversion: ";
+    }
+    td:nth-of-type(6):before {
+        color: coral;
+        content: "Agreeableness: ";
+    }
+    td:nth-of-type(7):before {
+        color: coral;
+        content: "Emotional Range: ";
+    }
+    body {
+        height: 100%;
+    }
+    #logo {
+        position: relative;
+        top: 150px;
+        right: 70px;
+    }
+    #indexfooter {
+        background-image: url("assets/images/icon.png");
+        height: 1200px;
+        margin-top: 0px;
+    }
+    #icon {
+        visibility: hidden;
+    }
+    #watsonIcon {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 100px;
+    }
+    tr:nth-of-type(1) {
+        display: none;
+    }
+    th {
+        visibility: hidden;
+    }
+    td:nth-of-type(1):before {
+        color: coral;
+    }
+    td:nth-of-type(2):before {
+        color: coral;
+        content: "Name: ";
+    }
+    td:nth-of-type(3):before {
+        color: coral;
+        content: "Openess: ";
+    }
+    td:nth-of-type(4):before {
+        color: coral;
+        content: "Conscientiousness: ";
+    }
+    td:nth-of-type(5):before {
+        color: coral;
+        content: "Extraversion: ";
+    }
+    td:nth-of-type(6):before {
+        color: coral;
+        content: "Agreeableness: ";
+    }
+    td:nth-of-type(7):before {
+        color: coral;
+        content: "Emotional Range: ";
+    }
+    #main {
+        height: 1800px;
+    }
+    body {
+        font-size: 30px;
+    }
+    #name {
+        font-size: 40px;
+        padding-top: 150px;
+    }
+    #user_name {
+        font-size: 40px;
+    }
+    #submit {
+        position: relative;
+        top: 130px;
+        left: 200px;
+    }
+    #logo {
+        position: relative;
+        top: 330px;
+        right: 20px;
+    }
+    #tableD {
+        position: relative;
+        top: 330px;
+        left: 140px;
+    }
+    #indexfooter {
+        background-image: url("assets/images/icon.png");
+        height: 3000px;
+        margin-top: 0px;
+    }
+    #icon {
+        visibility: hidden;
+    }
+    #watsonIcon {
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        font-size: 30px;
+    }
+    #table {
+        margin-right: 100px;
+    }
+    tr:nth-of-type(1) {
+        display: none;
+    }
+    th {
+        visibility: hidden;
+    }
+    td:nth-of-type(1):before {
+        color: coral;
+    }
+    td:nth-of-type(2):before {
+        color: coral;
+        content: "Name: ";
+    }
+    td:nth-of-type(3):before {
+        color: coral;
+        content: "Openess: ";
+    }
+    td:nth-of-type(4):before {
+        color: coral;
+        content: "Conscientiousness: ";
+    }
+    td:nth-of-type(5):before {
+        color: coral;
+        content: "Extraversion: ";
+    }
+    td:nth-of-type(6):before {
+        color: coral;
+        content: "Agreeableness: ";
+    }
+    td:nth-of-type(7):before {
+        color: coral;
+        content: "Emotional Range: ";
+    }
+    #indexfooter {
+        background-image: url("assets/images/icon.png");
+        height: 1500px;
+        margin-top: 0px;
+    }
+    #icon {
+        visibility: hidden;
+    }
+    #watsonIcon {
+        visibility: hidden;
+    }
+}
